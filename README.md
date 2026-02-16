@@ -22,6 +22,7 @@ ___________________________________________
 
 Run commands: 
 1. Install Dependecies:
+
        pip install -r utilities/requirements.txt
 2. Run the test with Allure report:
 
