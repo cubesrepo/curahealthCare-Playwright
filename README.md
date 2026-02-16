@@ -37,10 +37,10 @@ Run commands:
    ![img_1.png](img_1.png) 
 2. Scroll down and navigate to Pipeline then select "pipeline script from SCM" > Select Git > Paste the Repo URL and click Apply and Save
    <br>
-   ![img_2.png](img_4.png)
+   ![img_2.png](img_2.png)
 3. Click build now
    <br>
-   ![img_3.png](img_5.png)
+   ![img_3.png](img_3.png)
 
 
 
