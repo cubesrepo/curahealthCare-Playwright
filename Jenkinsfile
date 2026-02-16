@@ -9,13 +9,13 @@ pipeline{
         stage('Install dependencies'){
             bat '''
             python -m venv venv
-            call venv\\Scripts\activate
+            call venv\\Scripts\\activate
             pip install -r utilities/requirements.txt
             '''
         }
         stage('Run playwright tests'){
             bat '''
-            call venv\\Scripts\activate
+            call venv\\Scripts\\activate
             pytest -v --headless
             '''
         }
