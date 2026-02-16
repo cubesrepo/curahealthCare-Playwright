@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Checkout'){
             steps{
-                git "https://github.com/cubesrepo/curahealthCare-Playwright.git"
+                git branch: 'main', url: "https://github.com/cubesrepo/curahealthCare-Playwright.git"
             }
         }
         stage('Install dependencies'){
