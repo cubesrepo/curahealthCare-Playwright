@@ -18,9 +18,9 @@ pipeline{
         }
         stage('Run playwright tests'){
             steps{
-                 bat '''
+                bat '''
                 call venv\\Scripts\\activate
-                pytest -v --headless
+                pytest -v
                 '''
             }
         }
