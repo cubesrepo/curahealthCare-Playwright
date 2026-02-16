@@ -12,6 +12,7 @@ pipeline{
                 python -m venv venv
                 call venv\\Scripts\\activate
                 pip install -r utilities/requirements.txt
+                playwright install
                 '''
             }
 
