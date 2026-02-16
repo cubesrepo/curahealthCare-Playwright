@@ -21,9 +21,27 @@ pipeline{
             steps{
                 bat '''
                 call venv\\Scripts\\activate
-                pytest -v
+                pytest -v --alluredir=reports/allure-results
                 '''
             }
+        }
+    }
+    post{
+        always{
+            echo "Generating allure report"
+            allure([
+                includeProperties: false,
+                jdk: '',
+                results [[path: 'reports/allure-results']]
+            ])
+            echo "cleaning up workspace"
+            cleanWs()
+        }
+        success{
+            echo "Test passed successfully"
+        }
+        failure{
+            echo "Test failed!"
         }
     }
 }
