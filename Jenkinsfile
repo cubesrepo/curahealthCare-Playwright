@@ -32,7 +32,7 @@ pipeline{
             allure([
                 includeProperties: false,
                 jdk: '',
-                results [[path: 'reports/allure-results']]
+                results: [[path: 'reports/allure-results']]
             ])
             echo "cleaning up workspace"
             cleanWs()
