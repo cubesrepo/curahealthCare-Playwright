@@ -8,7 +8,7 @@ from pages.history_page import HistoryPage
 def login_history(setup_login):
     history_page = HistoryPage(setup_login)
     yield history_page
-@pytest.mark.skip
+
 def test_no_appointment(login_history):
     no_appointment_text = login_history.no_appointment()
 
@@ -16,6 +16,7 @@ def test_no_appointment(login_history):
 
 def test_with_appointment(setup_login, page):
     appointment_page = AppointmentPage(setup_login)
+    history_page = HistoryPage(page)
 
     details = {
         "visit_date": "25/12/2026",
@@ -29,7 +30,7 @@ def test_with_appointment(setup_login, page):
         details["comment"]
     )
 
-    history_page = HistoryPage(page)
+
     history_page.click_menu()
     history_page.click_history()
 

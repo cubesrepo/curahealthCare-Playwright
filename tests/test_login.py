@@ -13,7 +13,7 @@ def open_url(page):
 
     yield  login_page
 
-@pytest.mark.skip
+
 def test_valid_login(open_url):
     open_url.login(
         test_data.credentials["valid_username"],
@@ -23,7 +23,7 @@ def test_valid_login(open_url):
 
     time.sleep(3)
 
-@pytest.mark.skip
+
 def test_invalid_login(open_url):
     open_url.login(
         test_data.credentials["invalid_username"],
