@@ -26,22 +26,22 @@ pipeline{
             }
         }
     }
-    post {
-         always {
+    post{
+        always{
             echo "Generating allure report"
-            allure([
-                includeProperties: false,
-                jdk: '',
-                results: [[path: 'reports/allure-results']]
+            step([$class: 'AllureReportPublisher',
+                  results: [[path: 'reports/allure-results']],
+                  includeProperties: false,
+                  jdk: ''
             ])
             echo "Cleaning up workspace"
             cleanWs()
-         }
-         success {
+        }
+        success{
             echo "Test passed successfully"
-         }
-         failure {
+        }
+        failure{
             echo "Test failed!"
-         }
+        }
     }
 }
