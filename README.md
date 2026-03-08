@@ -24,6 +24,9 @@ Run commands:
 1. Install Dependecies:
 
        pip install -r utilities/requirements.txt
+2. Install Playwright browsers:
+
+       playwright install
 2. Run the test with Allure report:
 
        pytest -v --alluredir=reports/allure-result
