@@ -8,9 +8,9 @@ pipeline{
         }
         stage('Install dependencies'){
             steps{
-                bat '''
-                python -m venv venv
-                call venv\\Scripts\\activate
+                sh '''
+                python3 -m venv venv
+                source venv/bin/activate
                 pip install -r utilities/requirements.txt
                 playwright install
                 '''
@@ -19,8 +19,8 @@ pipeline{
         }
         stage('Run playwright tests'){
             steps{
-                bat '''
-                call venv\\Scripts\\activate
+                sh '''
+                source venv/bin/activate
                 pytest -v --alluredir=reports/allure-results
                 '''
             }
