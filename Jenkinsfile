@@ -29,12 +29,12 @@ pipeline{
     post{
         always{
             echo "Generating allure report"
-            allure([
-                includeProperties: false,
-                jdk: '',
-                results: [[path: 'reports/allure-results']]
+            step([$class: 'AllureReportPublisher',
+                  results: [[path: 'reports/allure-results']],
+                  includeProperties: false,
+                  jdk: ''
             ])
-            echo "cleaning up workspace"
+            echo "Cleaning up workspace"
             cleanWs()
         }
         success{
