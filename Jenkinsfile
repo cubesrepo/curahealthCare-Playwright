@@ -11,7 +11,7 @@ pipeline{
                 sh '''
                 python3 -m venv venv
                 source venv/bin/activate
-                pip install -r utilities/requirements.txt
+                pip3 install -r utilities/requirements.txt
                 playwright install
                 '''
             }
