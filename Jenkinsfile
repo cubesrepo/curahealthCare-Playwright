@@ -3,7 +3,9 @@ pipeline{
 
     environment{
         VENV_DIR = "${WORKSPACE}/venv"
+        PYTHON_BIN = "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14"
     }
+
     stages{
         stage('Checkout'){
             steps{
@@ -13,9 +15,9 @@ pipeline{
         stage('Install dependencies'){
             steps{
                 sh '''
-                /Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m venv ${VENV_DIR}
+                ${PYTHON_BIN} -m venv ${VENV_DIR}
                 source ${VENV_DIR}/bin/activate
-                pip3 install -r utilities/requirements.txt
+                pip install -r utilities/requirements.txt
                 playwright install
                 '''
             }
