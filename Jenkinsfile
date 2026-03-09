@@ -9,7 +9,7 @@ pipeline{
         stage('Install dependencies'){
             steps{
                 sh '''
-                python3 -m venv venv
+                python3.11 -m venv venv
                 source venv/bin/activate
                 pip3 install --upgrade pip
                 pip3 install -r utilities/requirements.txt
