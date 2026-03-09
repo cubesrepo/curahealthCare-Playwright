@@ -1,5 +1,12 @@
 pipeline{
     agent any
+
+    tools{
+        python 'python3.14'
+    }
+    environment{
+        VENV_DIR = "${WORKSPACE}/venv"
+    }
     stages{
         stage('Checkout'){
             steps{
@@ -9,8 +16,8 @@ pipeline{
         stage('Install dependencies'){
             steps{
                 sh '''
-                python3 -m venv venv
-                source venv/bin/activate
+                python3.14 -m venv ${VENV_DIR}
+                source ${VENV_DIR}/bin/activate
                 pip3 install -r utilities/requirements.txt
                 playwright install
                 '''
@@ -20,7 +27,7 @@ pipeline{
         stage('Run playwright tests'){
             steps{
                 sh '''
-                source venv/bin/activate
+                source ${VENV_DIR}/bin/activate
                 pytest -v --alluredir=reports/allure-results
                 '''
             }
