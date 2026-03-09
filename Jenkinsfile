@@ -9,7 +9,7 @@ pipeline{
         stage('Install dependencies'){
             steps{
                 sh '''
-                /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 -m venv venv
+                python3 -m venv venv
                 source venv/bin/activate
                 pip3 install -r utilities/requirements.txt
                 playwright install
