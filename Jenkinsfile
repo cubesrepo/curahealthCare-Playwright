@@ -13,7 +13,7 @@ pipeline{
         stage('Install dependencies'){
             steps{
                 sh '''
-                python3.14 -m venv ${VENV_DIR}
+                /Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -m venv ${VENV_DIR}
                 source ${VENV_DIR}/bin/activate
                 pip3 install -r utilities/requirements.txt
                 playwright install
