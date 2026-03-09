@@ -1,10 +1,6 @@
 pipeline{
     agent any
 
-    tools{
-        PythonInstallation 'python3.14'
-    }
-
     environment{
         VENV_DIR = "${WORKSPACE}/venv"
     }
